@@ -4,14 +4,20 @@ const express = require("express");
 const path = require("path");
 const dataBase = require("../db/db.json");
 
+
+
 // Sets up the Express App
 // =============================================================
 const app = express();
 const PORT = 3000;
 
+//require("/assets/css/styles.css")(app);
+//require("/assets/js/index.js")(app);
+
 // Sets up the Express app to handle data parsing
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+app.use('/static', express.static(path.join(__dirname, 'assets')))
 
 // Basic route that sends the user first to the AJAX Page
 app.get("/", function(req, res) {
@@ -19,7 +25,7 @@ app.get("/", function(req, res) {
 });
   
 app.get("/notes", function(req, res) {
-  res.sendFile(path.join(__dirname, "notes.html"));;
+  res.sendFile(path.join(__dirname, "notes.html"));
 });
   
 app.get("/api/notes", function(req, res) {
