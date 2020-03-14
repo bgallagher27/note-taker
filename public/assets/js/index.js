@@ -51,7 +51,7 @@ let renderActiveNote = function() {
 
 // Get the note data from the inputs, save it to the db and update the view
 let handleNoteSave = function() {
-  var newNote = {
+  let newNote = {
     title: $noteTitle.val(),
     text: $noteText.val()
   };
@@ -87,7 +87,7 @@ let handleNoteView = function() {
   renderActiveNote();
 };
 
-// Sets the activeNote to and empty object and allows the user to enter a new note
+// Sets the activeNote to an empty object and allows the user to enter a new note
 let handleNewNoteView = function() {
   activeNote = {};
   renderActiveNote();
@@ -107,14 +107,14 @@ let handleRenderSaveBtn = function() {
 let renderNoteList = function(notes) {
   $noteList.empty();
 
-  var noteListItems = [];
+  let noteListItems = [];
 
-  for (var i = 0; i < notes.length; i++) {
-    var note = notes[i];
+  for (let i = 0; i < notes.length; i++) {
+    let note = notes[i];
 
-    var $li = $("<li class='list-group-item'>").data(note);
-    var $span = $("<span>").text(note.title);
-    var $delBtn = $(
+    let $li = $("<li class='list-group-item'>").data(note);
+    let $span = $("<span>").text(note.title);
+    let $delBtn = $(
       "<i class='fas fa-trash-alt float-right text-danger delete-note'>"
     );
 
