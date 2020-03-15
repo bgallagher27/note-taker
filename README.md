@@ -24,7 +24,7 @@ none
 * bgallagher27
 
 # Tests
-This project has beenrigorously tested for performance and quality!
+This project has been rigorously tested for performance and quality!
 
 # Questions: 
 * ![Github profile picture](https://avatars3.githubusercontent.com/u/58610224?v=4)
