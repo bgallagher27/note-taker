@@ -11,13 +11,10 @@ const dataBase = require("../db/db.json");
 const app = express();
 const PORT = 3000;
 
-//require("/assets/css/styles.css")(app);
-//require("/assets/js/index.js")(app);
-
 // Sets up the Express app to handle data parsing
+app.use(express.static("../public"));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-app.use('/static', express.static(path.join(__dirname, 'assets')))
 
 // Basic route that sends the user first to the AJAX Page
 app.get("/", function(req, res) {
