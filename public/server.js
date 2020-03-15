@@ -29,6 +29,16 @@ app.get("/api/notes", function(req, res) {
   return res.json(dataBase);
 });
 
+app.post("/api/notes", function(req, res) {
+  let newNote = req.body;
+
+  console.log(newNote);
+
+  dataBase.push(newNote);
+
+  res.json(newNote);
+});
+
 // Starts the server to begin listening
 // =============================================================
 app.listen(PORT, function() {
