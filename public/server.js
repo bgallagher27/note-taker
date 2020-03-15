@@ -11,7 +11,7 @@ const dataBase = require("../db/db.json");
 const app = express();
 const PORT = 3000;
 
-// Sets up the Express app to handle data parsing
+// Express middleware
 app.use(express.static("../public"));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
@@ -20,15 +20,18 @@ app.use(express.json());
 app.get("/", function(req, res) {
   res.sendFile(path.join(__dirname, "index.html"));
 });
-  
+
+// Route to get to the note taker
 app.get("/notes", function(req, res) {
   res.sendFile(path.join(__dirname, "notes.html"));
 });
-  
+
+// Route to show the stored notes
 app.get("/api/notes", function(req, res) {
   return res.json(dataBase);
 });
 
+// API route for creating a new note
 app.post("/api/notes", function(req, res) {
   let newNote = req.body;
 
@@ -39,6 +42,7 @@ app.post("/api/notes", function(req, res) {
   res.json(newNote);
 });
 
+// Route to delete a note
 app.delete("/api/notes/:id", function(req, res) {
   let id = req.params.id;
 
