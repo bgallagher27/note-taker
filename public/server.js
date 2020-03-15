@@ -39,6 +39,12 @@ app.post("/api/notes", function(req, res) {
   res.json(newNote);
 });
 
+app.delete("/api/notes/:id", function(req, res) {
+  let id = req.params.id;
+
+  delete dataBase[id];
+})
+
 // Starts the server to begin listening
 // =============================================================
 app.listen(PORT, function() {
