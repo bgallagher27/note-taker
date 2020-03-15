@@ -34,19 +34,17 @@ app.get("/api/notes", function(req, res) {
 // API route for creating a new note
 app.post("/api/notes", function(req, res) {
   let newNote = req.body;
-
   console.log(newNote);
-
   dataBase.push(newNote);
-
   res.json(newNote);
 });
 
 // Route to delete a note
 app.delete("/api/notes/:id", function(req, res) {
   let id = req.params.id;
-
-  delete dataBase[id];
+  console.log("note: '" + id + "' has been deleted");
+  dataBase.splice(req, 1);
+  res.send("success");
 })
 
 // Starts the server to begin listening
